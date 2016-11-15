@@ -1,5 +1,5 @@
 import {Component, Inject} from '@angular/core';
-import {LocalStorageService} from 'ng2-webstorage';
+import {CartService} from "./cart.service";
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,10 @@ import {LocalStorageService} from 'ng2-webstorage';
 export class AppComponent {
   title = 'app works!'
   allTheThings = []
-  myThings = []
-  storage
+  cartService
 
-  constructor(@Inject(LocalStorageService) storage) {
-    this.storage = storage
-    this.myThings = storage.retrieve('boundValue') || []
+  constructor(@Inject(CartService) cartService) {
+    this.cartService = cartService
     this.allTheThings = [
       {id: '1', name:'Beers', desc: '', price: ''},
       {id: '2', name:'Chips', desc: '', price: ''},
@@ -29,7 +27,6 @@ export class AppComponent {
   }
 
   addToCart(thing) {
-    this.myThings.push(thing)
-    this.storage.store('boundValue', this.myThings);
+    this.cartService.addItem(thing);
   }
 }

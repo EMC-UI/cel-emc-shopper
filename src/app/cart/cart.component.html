@@ -1,0 +1,4 @@
+<h3>My Things</h3>
+<ul>
+  <li *ngFor="let item of cartItems">{{item.name}} {{item.quantity}} <button (click)="removeFromCart(item)">don't buy this</button></li>
+</ul>

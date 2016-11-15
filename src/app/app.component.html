@@ -7,7 +7,4 @@
   <li *ngFor="let thing of allTheThings">{{thing.name}} <button (click)="addToCart(thing)">buy this</button></li>
 </ul>
 
-<h3>My Things</h3>
-<ul>
-  <li *ngFor="let thing of myThings">{{thing.name}} <button (click)="removeFromCart(thing)">don't buy this</button></li>
-</ul>
+<cart></cart>

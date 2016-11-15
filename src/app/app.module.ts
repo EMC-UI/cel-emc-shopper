@@ -6,10 +6,12 @@ import { Ng2Webstorage as StorageModule, LocalStorageService } from 'ng2-webstor
 import { CartService } from './cart.service'
 
 import { AppComponent } from './app.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
