@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Ng2Webstorage, LocalStorageService } from 'ng2-webstorage';
+import { CartService } from './cart.service'
 
 import { AppComponent } from './app.component';
 
@@ -12,9 +14,13 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Ng2Webstorage
   ],
-  providers: [],
+  providers: [
+    CartService,
+    LocalStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
