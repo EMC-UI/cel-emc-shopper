@@ -1,0 +1,47 @@
+:root {
+  --selected: #cde5f0;
+  --action: #127eb6;
+}
+
+h3 {
+  border-bottom: .1em solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0.5em 0;
+}
+
+h3 small {
+  opacity: .4;
+}
+
+.caret {
+  display: block;
+  width: .5em;
+  height: .5em;
+  box-shadow: .1em .1em 0 0 inset;
+  transform: rotate(45deg);
+  transition: transform 180ms ease-out;
+  opacity: .4;
+}
+.open .caret {
+  transform: rotate(-135deg);
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding: 1em;
+}
+
+cart li {
+  padding: 1em 0;
+}
+
+li.selected {
+  background: var(--selected);
+}

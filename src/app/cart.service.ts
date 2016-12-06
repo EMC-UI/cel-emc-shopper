@@ -33,6 +33,25 @@ export class CartService {
     return found;
   }
 
+  removeItem(item) {
+    let items = this.localStorage.retrieve(this.key) || []
+    let index = items.findIndex((_item) => {
+      return item.id === _item.id
+    })
+    if (index > -1) {
+      items.splice(index, 1)
+      this.localStorage.store(this.key, items);
+    }
+  }
+
+  toggleAddItem(storeItem:StoreItem) {
+    if(this.hasItem(storeItem)) {
+      this.removeItem(storeItem)
+    } else {
+      this.addItem(storeItem)
+    }
+  }
+
   getCartItems() {
     return this.localStorage.retrieve(this.key) || [];
   }

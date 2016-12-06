@@ -15,9 +15,9 @@ import { StoreBeerComponent } from './store-beer/store-beer.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: AppComponent },
-  { path: 'store-donuts', component: AppComponent },
-  { path: 'store-beer', component: AppComponent }
+  { path: '', component: StoreComponent },
+  { path: 'donuts', component: StoreDonutsComponent },
+  { path: 'beer', component: StoreBeerComponent }
 ];
 
 @NgModule({

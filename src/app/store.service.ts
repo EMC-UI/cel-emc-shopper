@@ -4,7 +4,7 @@ import {CartService} from "./cart.service";
 export class StoreItem {
   id:string
   name:string
-  description:string
+  desc:string
   price:number
 }
 
@@ -12,10 +12,10 @@ export class StoreItem {
 export class StoreService {
 
   cartService:CartService
-  storeItems:StoreItem[]
+  storeItems //:StoreItem[]
   constructor(@Inject(CartService) cartService:CartService) {
     this.cartService = cartService
-    this.storeItems = <StoreItem[]>[
+    this.storeItems = [ //<StoreItem[]>
       {id: '1', name:'Beers', desc: '', price: ''},
       {id: '2', name:'Chips', desc: '', price: ''},
       {id: '3', name:'Cake', desc: '', price: ''},

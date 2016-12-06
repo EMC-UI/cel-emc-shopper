@@ -1,4 +1,7 @@
-<h3>All The Things</h3>
+<h3>Store - {{type}}</h3>
 <ul>
-  <li [class.selected]="cartService.hasItem(thing)" *ngFor="let thing of storeService.storeItems">{{thing.name}}<button (click)="cartService.addItem(thing)">buy this</button></li>
+  <li [class.selected]="cartService.hasItem(item)" *ngFor="let item of storeService.storeItems">
+    <button (click)="cartService.toggleAddItem(item)"></button>
+    {{item.name}}
+  </li>
 </ul>
