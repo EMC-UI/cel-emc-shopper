@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Routes } from "@angular/router";
+import { Routes, RouterModule } from "@angular/router";
 import { Ng2Webstorage as StorageModule, LocalStorageService } from 'ng2-webstorage';
 import { CartService } from './cart.service'
 
@@ -15,6 +15,7 @@ import { StoreBeerComponent } from './store-beer/store-beer.component';
 
 
 const appRoutes: Routes = [
+  { path: '', component: AppComponent },
   { path: 'store-donuts', component: AppComponent },
   { path: 'store-beer', component: AppComponent }
 ];
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StorageModule
+    StorageModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     CartService,

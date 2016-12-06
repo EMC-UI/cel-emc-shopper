@@ -1,4 +1,4 @@
 <h3>All The Things</h3>
 <ul>
-  <li *ngFor="let thing of storeService.allTheThings">{{thing.name}} <button (click)="cartService.addItem(thing)">buy this</button></li>
+  <li [class.selected]="cartService.hasItem(thing)" *ngFor="let thing of storeService.storeItems">{{thing.name}}<button (click)="cartService.addItem(thing)">buy this</button></li>
 </ul>
