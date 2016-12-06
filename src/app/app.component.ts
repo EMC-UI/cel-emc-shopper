@@ -7,7 +7,7 @@ import {Component, Inject} from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'app works!'
+  title = 'Add things'
 
   constructor() {
   }

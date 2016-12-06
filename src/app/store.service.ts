@@ -1,15 +1,21 @@
 import {Injectable, Inject} from '@angular/core';
 import {CartService} from "./cart.service";
 
+export class StoreItem {
+  id:string
+  name:string
+  description:string
+  price:number
+}
 
 @Injectable()
 export class StoreService {
 
   cartService:CartService
-  allTheThings:Object[]
+  storeItems:StoreItem[]
   constructor(@Inject(CartService) cartService:CartService) {
     this.cartService = cartService
-    this.allTheThings = [
+    this.storeItems = <StoreItem[]>[
       {id: '1', name:'Beers', desc: '', price: ''},
       {id: '2', name:'Chips', desc: '', price: ''},
       {id: '3', name:'Cake', desc: '', price: ''},

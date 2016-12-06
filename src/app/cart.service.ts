@@ -1,5 +1,6 @@
 import {Injectable, Inject} from '@angular/core';
 import {LocalStorageService} from 'ng2-webstorage';
+import {StoreItem} from "./store.service";
 
 @Injectable()
 export class CartService {
@@ -8,9 +9,6 @@ export class CartService {
   key = 'cart'
 
   constructor(@Inject(LocalStorageService) localStorage) {
-
-    console.log('did i get a localStorage', localStorage)
-
     this.localStorage = localStorage
   }
 
@@ -28,11 +26,10 @@ export class CartService {
     this.localStorage.store(this.key, items);
   }
 
-  hasItem(thing:Object) {
-    let found = this.getCartItems().find((item) => {
-      return item.id === thing.id
+  hasItem(storeItem:StoreItem) {
+    let found = this.getCartItems().find((cartItem) => {
+      return cartItem.id === storeItem.id
     })
-    console.log(found, thing);
     return found;
   }
 
