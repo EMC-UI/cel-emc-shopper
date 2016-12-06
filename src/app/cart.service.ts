@@ -28,6 +28,14 @@ export class CartService {
     this.localStorage.store(this.key, items);
   }
 
+  hasItem(thing:Object) {
+    let found = this.getCartItems().find((item) => {
+      return item.id === thing.id
+    })
+    console.log(found, thing);
+    return found;
+  }
+
   getCartItems() {
     return this.localStorage.retrieve(this.key) || [];
   }
