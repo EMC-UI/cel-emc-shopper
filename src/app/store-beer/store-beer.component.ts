@@ -4,7 +4,7 @@ import {CartService} from "../cart.service";
 
 @Component({
   selector: 'store-beer',
-  templateUrl: '../store/store.component.html'
+  templateUrl: './store-beer.component.html'
 })
 export class StoreBeerComponent implements OnInit {
 

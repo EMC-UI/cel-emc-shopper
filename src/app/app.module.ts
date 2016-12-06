@@ -12,10 +12,11 @@ import { StoreComponent } from './store/store.component';
 import {StoreService} from "./store.service";
 import { StoreDonutsComponent } from './store-donuts/store-donuts.component';
 import { StoreBeerComponent } from './store-beer/store-beer.component';
+import { StoreGeneralComponent } from './store-general/store-general.component';
 
 
 const appRoutes: Routes = [
-  { path: '', component: StoreComponent },
+  { path: '', component: StoreGeneralComponent },
   { path: 'donuts', component: StoreDonutsComponent },
   { path: 'beer', component: StoreBeerComponent }
 ];
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     CartComponent,
     StoreComponent,
     StoreDonutsComponent,
-    StoreBeerComponent
+    StoreBeerComponent,
+    StoreGeneralComponent
   ],
   imports: [
     BrowserModule,
