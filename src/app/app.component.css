@@ -1,9 +1,14 @@
 :root {
   --selected: #cde5f0;
   --action: #127eb6;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  font-size: calc(1em + 1vmin)
+}
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-h3 {
+.list h3 {
   border-bottom: .1em solid;
   display: flex;
   justify-content: space-between;
@@ -12,11 +17,11 @@ h3 {
   padding: 0.5em 0;
 }
 
-h3 small {
+.list h3 small {
   opacity: .4;
 }
 
-.caret {
+.list .caret {
   display: block;
   width: .5em;
   height: .5em;
@@ -25,16 +30,19 @@ h3 small {
   transition: transform 180ms ease-out;
   opacity: .4;
 }
-.open .caret {
+.list .open .caret {
   transform: rotate(-135deg);
 }
 
-ul {
+.list ul {
   margin: 0;
   list-style: none;
   padding: 0;
 }
-li {
+
+store label {
+  display: block;
+  vertical-align: middle;
   padding: 1em;
 }
 
@@ -42,6 +50,54 @@ cart li {
   padding: 1em 0;
 }
 
-li.selected {
+.list li.selected {
   background: var(--selected);
+}
+
+
+/* checkbox */
+.list input[type="checkbox"] {
+  font-size: 1em;
+  border: 0;
+  line-height: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  transition: all .3s;
+  outline-offset: 0;
+  margin: 0;
+  width: 1em;
+  height: 1em;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--action);
+  background: #fff;
+  border: .1em solid;
+  position: relative;
+}
+.list input[type="checkbox"]:focus {
+  outline: none;
+}
+.list input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border: 0 solid;
+  border-width: 0 0 .25em .25em;
+  color: transparent;
+  padding: .15em .4em;
+  left: 75%;
+  top: 20%;
+}
+.list input[type="checkbox"][disabled] {
+  opacity: .35;
+}
+.list input[type="checkbox"]:not(.toggle) {
+  border-radius: .2em;
+  margin-right: .3em;
+}
+.list input[type="checkbox"]:not(.toggle):checked::before {
+  color: inherit;
 }

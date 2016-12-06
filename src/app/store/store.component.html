@@ -1,7 +1,9 @@
 <h3>Store - {{type}}</h3>
 <ul>
   <li [class.selected]="cartService.hasItem(item)" *ngFor="let item of storeService.storeItems">
-    <button (click)="cartService.toggleAddItem(item)"></button>
-    {{item.name}}
+    <label>
+      <input type="checkbox" (click)="cartService.toggleAddItem(item)" [checked]="cartService.hasItem(item)" />
+      {{item.name}}
+    </label>
   </li>
 </ul>
