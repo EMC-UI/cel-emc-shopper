@@ -8,6 +8,86 @@
   box-sizing: border-box;
 }
 
+
+
+/* layout */
+html, body {height: 100%}
+body {
+  display: flex;
+  margin: 0;
+}
+
+app-root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+header, nav {
+  flex: 0 0 auto;
+}
+header {
+  padding: 0 1em;
+}
+nav {
+  display: flex;
+}
+main {
+  flex: 1;
+  display: flex;
+}
+main section {
+  flex: 7;
+}
+main aside {
+  flex: 3;
+  min-width: 15em;
+  max-width: 25vw;
+  background: #efefef;
+  display: flex;
+}
+main section,
+main aside {
+  padding: 1em;
+}
+
+/* CART */
+cart {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+cart > * {
+  flex: 0 0 auto;
+}
+
+cart ul {
+  flex: 1;
+  overflow: auto;
+}
+
+
+
+/* colors */
+header {
+  color: #fff;
+  background: var(--action);
+}
+
+nav {
+  color: #fff;
+  background: #454545;
+}
+
+/* details */
+nav a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  padding: .5em 1em;
+}
+
 .list h3 {
   border-bottom: .1em solid;
   display: flex;
@@ -41,19 +121,27 @@
 }
 
 store label {
-  display: block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   padding: 1em;
 }
 
+store label > * {
+  margin-left: 1ch;
+}
+
 cart li {
-  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+  padding: .5em 0;
+}
+cart button:not(.text) {
+  flex: 1;
 }
 
 .list li.selected {
   background: var(--selected);
 }
-
 
 /* checkbox */
 .list input[type="checkbox"] {
@@ -70,6 +158,7 @@ cart li {
   width: 1em;
   height: 1em;
   padding: 0;
+  border-radius: .2em;
   display: inline-block;
   vertical-align: middle;
   color: var(--action);
@@ -86,7 +175,7 @@ cart li {
   transform: translate(-50%, -50%) rotate(-45deg);
   border: 0 solid;
   border-width: 0 0 .25em .25em;
-  color: transparent;
+  color: inherit;
   padding: .15em .4em;
   left: 75%;
   top: 20%;
@@ -94,10 +183,24 @@ cart li {
 .list input[type="checkbox"][disabled] {
   opacity: .35;
 }
-.list input[type="checkbox"]:not(.toggle) {
-  border-radius: .2em;
-  margin-right: .3em;
+
+
+button {
+  font: inherit;
+  border: 0;
+  line-height: 1;
+  outline: none;
 }
-.list input[type="checkbox"]:not(.toggle):checked::before {
-  color: inherit;
+
+button:not(.text) {
+  background: var(--action);
+  color: #fff;
+  border-radius: .3em;
+  padding: .5em;
+}
+
+button.text {
+  background: transparent;
+  color: var(--action);
+  padding: 0;
 }

@@ -3,7 +3,7 @@
   <li [class.selected]="cartService.hasItem(item)" *ngFor="let item of storeService.storeItems">
     <label>
       <input type="checkbox" (click)="cartService.toggleAddItem(item)" [checked]="cartService.hasItem(item)" />
-      {{item.name}}
+      <span>{{item.name}}</span>
     </label>
   </li>
 </ul>

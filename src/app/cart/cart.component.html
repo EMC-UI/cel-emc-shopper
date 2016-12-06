@@ -1,11 +1,26 @@
 <h3>
   <span>
     My Things
-    <small>{{cartItems.length}} items</small>
+    <small>
+      {{cartItems.length}}
+      {{(cartItems.length == 1 ? 'item' : 'items')}}
+    </small>
   </span>
   <span class="caret"></span>
 </h3>
-<div>remove all</div>
-<ul>
-  <li *ngFor="let item of cartItems">{{item.name}} {{item.quantity}} <button (click)="removeItem(item)">don't buy this</button></li>
-</ul>
+
+<div *ngIf="cartItems.length">
+  <ul>
+    <li>
+      <span></span>
+      <button class="text">remove all</button>
+    </li>
+    <li *ngFor="let item of cartItems">
+      <span>{{item.name}}</span>
+      <button (click)="removeItem(item)" class="text">&times;</button>
+    </li>
+    <li>
+      <button>Do The Thing</button>
+    </li>
+  </ul>
+</div>
