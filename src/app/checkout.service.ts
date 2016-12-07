@@ -18,7 +18,7 @@ export class CheckoutService {
   }
 
   checkoutItems() {
-    console.debug("in order")
+
     let items = this.localStorage.retrieve('cart')
     let checkoutItems=[];
     while (items.length > 0){
