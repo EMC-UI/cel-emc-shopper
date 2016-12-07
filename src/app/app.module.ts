@@ -13,8 +13,9 @@ import { StoreService } from "./store.service";
 import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StoreWrapperComponent },
-  { path: ':category', component: StoreWrapperComponent }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: StoreWrapperComponent },
+  { path: 'category/:category', component: StoreWrapperComponent }
 ];
 
 @NgModule({

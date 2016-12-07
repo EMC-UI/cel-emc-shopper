@@ -20,7 +20,10 @@
   </ul>
   <ul class="items">
     <li *ngFor="let item of cartItems">
-      <span>{{item.name}}</span>
+      <span>
+        {{item.name}}<br />
+        <small class="ghost">in <a routerLink="category/{{item.category}}">{{item.category}}</a></small>
+      </span>
       <button (click)="cartService.removeItem(item)" class="text">&times;</button>
     </li>
   </ul>
