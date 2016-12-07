@@ -120,6 +120,7 @@ nav a {
   align-items: center;
   margin: 0;
   padding: 0.5em 0;
+  font-weight: 300;
 }
 
 .list h3 small {
@@ -143,6 +144,7 @@ nav a {
   margin: 0;
   list-style: none;
   padding: 0;
+  font-weight: 300;
 }
 
 .list-wrapper {
