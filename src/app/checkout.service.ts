@@ -3,8 +3,8 @@ import {LocalStorageService} from 'ng2-webstorage';
 
 export class CheckoutService {
   localStorage
-  key = 'cart'
-
+  key = 'order'
+  orderItems
   constructor(@Inject(LocalStorageService) localStorage) {
     this.localStorage = localStorage
   }
@@ -18,6 +18,21 @@ export class CheckoutService {
   }
 
   checkoutItems() {
-    return this.localStorage.retrieve(this.key) || [];
+    console.debug("in order")
+    let items = this.localStorage.retrieve('cart')
+    let checkoutItems=[];
+    while (items.length > 0){
+      let item = items.pop();
+      checkoutItems.push(item);
+    }
+    this.localStorage.store('order',checkoutItems)
+
+    return this.localStorage.retrieve('order',items)
+
+
+    // this.localStorage.store('order',items)
+   // return this.localStorage.store('order',items);
+    //return this.localStorage.retrieve(this.key) || [];
+
   }
 }

@@ -22,11 +22,5 @@ export class CartComponent implements OnInit {
     this.cartService.removeItem(item)
   }
 
-  removeAllItem(){
-    let cartItems = this.cartService.getCartItems()
-    while (cartItems.length >0) {
-      cartItems.pop()
-    }
 
-  }
 }

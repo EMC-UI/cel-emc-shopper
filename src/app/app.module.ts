@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { Routes, RouterModule } from "@angular/router";
 import { Ng2Webstorage as StorageModule, LocalStorageService } from 'ng2-webstorage';
 import { CartService } from './cart.service'
 
@@ -11,19 +12,36 @@ import { StoreComponent } from './store/store.component';
 import {StoreService} from "./store.service";
 import { CheckoutComponent } from './checkout/checkout.component';
 import {CheckoutService} from "./checkout.service";
+import { StoreDonutsComponent } from './store-donuts/store-donuts.component';
+import { StoreBeerComponent } from './store-beer/store-beer.component';
+import { StoreGeneralComponent } from './store-general/store-general.component';
+
+
+const appRoutes: Routes = [
+  { path: '', component: StoreGeneralComponent },
+  { path: 'donuts', component: StoreDonutsComponent },
+  { path: 'beer', component: StoreBeerComponent },
+  { path: 'checkout', component: CheckoutComponent }
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
     StoreComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    StoreComponent,
+    StoreDonutsComponent,
+    StoreBeerComponent,
+    StoreGeneralComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    StorageModule
+    StorageModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     CartService,

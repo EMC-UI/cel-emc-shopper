@@ -6,9 +6,7 @@ import {Component, Inject} from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Add things'
+  title = 'Our Store'
 
-  constructor() {
-  }
-
+  constructor() {}
 }

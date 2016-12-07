@@ -1,13 +1,8 @@
-<h3>
-  <span>
-    Checkout
-    <small>{{cartItems.length}} itmes</small>
-  </span>
-  <span class="caret"></span>
-</h3>
-<ul>
-  <li *ngFor="let item of orderItems">{{item.name}} {{item.quantity}} <button (click)="removeFromCart(item)">do not buy this</button></li>
-</ul>
-<ul>
-   <button (click)="checkoutItems()">checkout</button>
-</ul>
+   <button (click)="order()">Orders</button>
+   <div *ngIf="orderItems && orderItems.length">
+     <ul>
+       <li *ngFor="let item of orderItems">
+         <span>{{item.name}}</span>
+       </li>
+     </ul>
+   </div>

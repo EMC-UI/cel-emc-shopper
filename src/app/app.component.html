@@ -1,10 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<header>
+  <h1>
+    {{title}}
+  </h1>
+</header>
 
-<store></store>
+<nav>
+  <a routerLink="/donuts" routerLinkActive="active">Donuts</a>
+  <a routerLink="/beer" routerLinkActive="active">Beer</a>
+</nav>
+
+<main>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+  <aside>
+    <cart class="list"></cart>
+  </aside>
+</main>
 
 
-<cart></cart>
-
-<checkout></checkout>

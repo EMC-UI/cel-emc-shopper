@@ -1,5 +1,6 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {CheckoutService} from "../checkout.service";
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'checkout',
@@ -9,16 +10,33 @@ import {CheckoutService} from "../checkout.service";
 export class CheckoutComponent implements OnInit {
   checkoutService
   orderItems:any[]
-  constructor(@Inject(CheckoutService) checkoutService:CheckoutService) {
+  cartService
+  cartItems:any[]
+  constructor(@Inject(CheckoutService)  checkoutService:CheckoutService,
+              @Inject(CartService)  cartService:CartService) {
     this.checkoutService = checkoutService
+    this.cartService = cartService
   }
 
   ngOnInit() {
-    this.orderItems = this.checkoutService.checkoutItems()
+    console.debug("hello")
+    //this.orderItems = this.checkoutService.checkoutItems()
+
   }
 
-  checkout(){
-    this.checkoutService.checkoutItems()
+  order(){
+    this.orderItems = this.checkoutService.checkoutItems()
+
+    let cartItems = this.cartService.getItems('cart')
+    console.log(cartItems)
+
+   // this.cartService.removeItemWithKey('order','Pie')
+
+    this.orderItems = this.checkoutService.getOrderItems()
+
   }
+
 
 }
+
+
