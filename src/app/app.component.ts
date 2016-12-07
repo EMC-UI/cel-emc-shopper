@@ -15,6 +15,10 @@ export class AppComponent implements OnInit {
 
   }
 
+  checkout(cartItems) {
+    this.router.navigate(['checkout/start'])
+  }
+
   ngOnInit() {
     this.router.events
       .subscribe((event) => {

@@ -37,6 +37,8 @@ import {CartService} from "../cart.service";
  *
  * @restrict Element
  *
+ *
+ *
  */
 @Component({
   selector: 'cart',
@@ -48,7 +50,7 @@ export class CartComponent implements OnInit {
   cartCollapsed
   cartItems:any[]
   cartService
-  @Output() checkout = new EventEmitter<boolean>()
+  @Output() checkout = new EventEmitter<Object[]>()
 
   constructor(@Inject(CartService) cartService:CartService) {
     this.cartService = cartService
@@ -58,15 +60,7 @@ export class CartComponent implements OnInit {
     this.cartItems = this.cartService.getCartItems()
   }
 
-  /**
-   * @ngdoc method
-   * @name checkout
-   * @methodOf CartComponent
-   * @description
-   * This emits when the user clicks the checkout button and passes the cart items back to your function
-   *
-   */
-  checkout() {
+  doCheckout() {
     this.checkout.emit(this.cartItems)
   }
 
@@ -74,15 +68,6 @@ export class CartComponent implements OnInit {
     this.cartCollapsed = !this.cartCollapsed;
   }
 
-  /**
-   * @ngdoc method
-   * @name removeAllItems
-   * @methodOf CartComponent
-   * @description
-   * Call this method when you are ready to empty the cart.  Typically after the user confirms their intentions.
-   * Once this method is called, then the cart items will be removed permanently.
-   *
-   */
   removeAllItem(){
     let cartItems = this.cartService.getCartItems()
     while (cartItems.length >0) {

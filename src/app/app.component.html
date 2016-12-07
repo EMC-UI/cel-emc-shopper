@@ -23,7 +23,7 @@
     <router-outlet></router-outlet>
   </section>
   <aside *ngIf="showCart">
-    <cart class="list"></cart>
+    <cart class="list" (checkout)="checkout(cartItems)"></cart>
   </aside>
 </main>
 
