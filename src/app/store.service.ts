@@ -21,14 +21,18 @@ export class StoreService {
   constructor(@Inject(CartService) cartService:CartService, @Inject(Http) private http: Http ) {
     this.cartService = cartService
     this.storeItems = this.allItems = [ //<StoreItem[]>
-      {id: '1', name:'Ten FIDY', category:'Beer', desc: '', price: ''},
-      {id: '2', name:'Sawtooth', category:'Beer', desc: '', price: ''},
-      {id: '3', name:'Barrel Aged Yeti', category:'Beer', desc: '', price: ''},
-      {id: '4', name:'Legend Of The Liquid Brain', category:'Beer', desc: '', price: ''},
-      {id: '5', name:'Glazed', category:'Donuts', desc: '', price: ''},
-      {id: '6', name:'Chocolate Glazed', category:'Donuts', desc: '', price: ''},
-      {id: '7', name:'Strawberry Cake', category:'Donuts', desc: '', price: ''},
-      {id: '8', name:'Bear Claw', category:'Donuts', desc: '', price: ''}
+      {id: '1', name:'Bazillion Lego Pieces', category:'Toys', desc: '', price: ''},
+      {id: '2', name:'Moon Sand', category:'Toys', desc: '', price: ''},
+      {id: '3', name:'VMAX All Flash', category:'Toys', desc: '', price: ''},
+      {id: '4', name:'Web Component Playtime Blocks', category:'Toys', desc: '', price: ''},
+      {id: '5', name:'Chess', category:'Games', desc: '', price: ''},
+      {id: '6', name:'Silicon Valley Takeover', category:'Games', desc: '', price: ''},
+      {id: '7', name:'Let Me Google That For You', category:'Games', desc: '', price: ''},
+      {id: '8', name:'Sequence', category:'Games', desc: '', price: ''},
+      {id: '9', name:'Jetson v5 Hover Scooter', category:'Electronics', desc: '', price: ''},
+      {id: '10', name:'Sky Viper HD Drone', category:'Electronics', desc: '', price: ''},
+      {id: '11', name:'TI-84 Graphing Calculator', category:'Electronics', desc: '', price: ''},
+      {id: '12', name:'Mars Rover', category:'Electronics', desc: '', price: ''}
     ]
   }
 

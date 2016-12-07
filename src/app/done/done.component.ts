@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DoneService} from "../done.service";
 
 @Component({
   selector: 'app-done',
