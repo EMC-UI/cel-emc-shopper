@@ -19,6 +19,7 @@ app-root {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 header, nav {
@@ -36,6 +37,7 @@ main {
 }
 main section {
   flex: 7;
+  overflow: auto;
 }
 main aside {
   flex: 3;
@@ -143,6 +145,22 @@ nav a {
   padding: 0;
 }
 
+.list-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.list-wrapper > * {
+  flex: 0 0 auto;
+}
+.list-wrapper .items {
+  padding: 0 1em 0 0;
+  flex: 1;
+  border-top: .1em solid rgba(0,0,0,.2);
+  border-bottom: .1em solid rgba(0,0,0,.2);
+  overflow: auto;
+}
+
 store label {
   display: flex;
   align-items: center;
@@ -210,6 +228,9 @@ cart button:not(.text) {
   opacity: .35;
 }
 
+.ghost {
+  opacity: .4;
+}
 
 button {
   font: inherit;
