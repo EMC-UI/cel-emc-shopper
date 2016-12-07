@@ -113,6 +113,10 @@ nav a {
   padding: .5em 1em;
 }
 
+nav .active {
+  box-shadow: 0 -.3em 0 0 #ffd13b inset, 0 .3em 0 0 #ffd13b, 0 .5em 1em -.3em #000;
+}
+
 .list h3 {
   border-bottom: .1em solid;
   display: flex;
@@ -145,6 +149,10 @@ nav a {
   list-style: none;
   padding: 0;
   font-weight: 300;
+}
+.list a {
+  color: var(--action);
+  text-decoration: none;
 }
 
 .list-wrapper {

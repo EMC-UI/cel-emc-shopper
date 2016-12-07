@@ -29,10 +29,5 @@ export class CheckoutService {
 
     return this.localStorage.retrieve('order',items)
 
-
-    // this.localStorage.store('order',items)
-   // return this.localStorage.store('order',items);
-    //return this.localStorage.retrieve(this.key) || [];
-
   }
 }

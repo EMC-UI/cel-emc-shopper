@@ -1,3 +1,8 @@
-<p>
-  done works!
-</p>
+<div *ngIf="orderItems && orderItems.length">
+  <ul>
+    <li *ngFor="let item of orderItems">
+      <span>{{item.name}}</span>
+    </li>
+  </ul>
+</div>
+<h3> Your order has been placed </h3>

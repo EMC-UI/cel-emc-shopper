@@ -1,6 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {CheckoutService} from "../checkout.service";
-import {CartService} from "../cart.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -11,13 +10,10 @@ import {Router} from "@angular/router";
 export class CheckoutComponent implements OnInit {
   checkoutService
   orderItems:any[]
-  cartService
-  cartItems:any[]
+
   constructor(@Inject(CheckoutService)  checkoutService:CheckoutService,
-              @Inject(CartService)  cartService:CartService,
               private router: Router) {
     this.checkoutService = checkoutService
-    this.cartService = cartService
 
   }
 
@@ -30,12 +26,6 @@ export class CheckoutComponent implements OnInit {
 
   order(){
     this.orderItems = this.checkoutService.checkoutItems()
-
-    let cartItems = this.cartService.getCartItems()
-    console.log(cartItems)
-
-   // this.cartService.removeItemWithKey('order','Pie')
-
     this.orderItems = this.checkoutService.getOrderItems()
     this.router.navigate(['/checkout/done'])
   }
