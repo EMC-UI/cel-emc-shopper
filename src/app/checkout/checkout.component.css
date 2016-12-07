@@ -20,3 +20,6 @@ button:hover {
   background: linear-gradient(to right, #59a4cb, #127EB6);
   transition: background 1s ease-in-out;
 }
+button[disabled], button:hover[disabled] {
+  background-color: grey;
+}
