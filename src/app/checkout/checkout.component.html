@@ -1,4 +1,8 @@
-<h3> Review order </h3>
+<h3> Here's Your Order : </h3>
+<small>
+  {{cartItems.length}}
+  {{(cartItems.length == 1 ? 'item' : 'items')}}
+</small>
 <div *ngIf="orderItems && orderItems.length">
   <ul>
     <li *ngFor="let item of orderItems">
