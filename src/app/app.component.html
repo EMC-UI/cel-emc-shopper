@@ -22,7 +22,7 @@
   <section>
     <router-outlet></router-outlet>
   </section>
-  <aside>
+  <aside *ngIf="showCart">
     <cart class="list"></cart>
   </aside>
 </main>

@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   { path: 'home', component: StoreWrapperComponent },
   { path: 'category/:category', component: StoreWrapperComponent },
   { path: 'checkout/start', component: CheckoutComponent },
-  { path: 'checkout/done', component: CheckoutComponent }
+  { path: 'checkout/done', component: DoneComponent }
 ];
 
 @NgModule({

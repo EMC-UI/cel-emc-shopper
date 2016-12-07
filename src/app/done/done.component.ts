@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {DoneService} from "../done.service";
+import {Component, OnInit, Inject} from '@angular/core';
+import {CheckoutService} from "../checkout.service";
 
 @Component({
   selector: 'app-done',
@@ -7,10 +7,14 @@ import {DoneService} from "../done.service";
   styleUrls: ['./done.component.css']
 })
 export class DoneComponent implements OnInit {
-
-  constructor() { }
+  checkoutService
+  orderItems;
+  constructor(@Inject(CheckoutService)  checkoutService:CheckoutService) {
+    this.checkoutService = checkoutService
+  }
 
   ngOnInit() {
+    this.orderItems = this.checkoutService.getOrderItems()
   }
 
 }
