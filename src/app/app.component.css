@@ -1,6 +1,10 @@
 :root {
   --selected: #cde5f0;
   --action: #127eb6;
+  --accent: #ffd13b;
+  --bg: linear-gradient(90deg, rgba(0,0,0,0) 36%, rgba(0,0,0,.35));
+  --button-bg: var(--action);
+
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-size: calc(1em + 1vmin)
 }
@@ -97,7 +101,7 @@ cart ul {
 header {
   color: #fff;
   background: var(--action);
-  background-image: linear-gradient(90deg, rgba(0,0,0,0) 36%, rgba(0,0,0,.35));
+  background-image: var(--bg);
 }
 
 nav {
@@ -114,7 +118,7 @@ nav a {
 }
 
 nav .active {
-  box-shadow: 0 -.3em 0 0 #ffd13b inset, 0 .3em 0 0 #ffd13b, 0 .5em 1em -.3em #000;
+  box-shadow: 0 -.3em 0 0 var(--accent) inset, 0 .3em 0 0 var(--accent), 0 .5em 1em -.3em #000;
 }
 
 .list h3 {
@@ -253,17 +257,43 @@ button {
   border: 0;
   line-height: 1;
   outline: none;
+  cursor: pointer;
 }
 
 button:not(.text) {
-  background: var(--action);
+  background: var(--button-bg);
   color: #fff;
   border-radius: .3em;
   padding: .5em;
+  box-shadow: 0 0 1.5em 0 rgba(0, 0, 0, 0.3);
 }
 
 button.text {
   background: transparent;
   color: var(--action);
   padding: 0;
+}
+
+app-root.xmas {
+  --action: #ca1e34;
+  --selected: #eaced0;
+  --accent: #63bd66;
+  --bg: repeating-linear-gradient(-45deg,
+      var(--action) 0, var(--action) 1vmax,
+      var(--selected) 1vmax, var(--selected) 2vmax,
+      var(--action) 2vmax, var(--action) 2.25vmax,
+      var(--selected) 2.25vmax, var(--selected) 4vmax);
+  --button-bg: var(--bg);
+}
+
+@keyframes barberpole {
+  from {background-position: 0 0; }
+  to { background-position: 75vmax 0vmax; }
+}
+app-root.xmas button:not(.text) {
+  box-shadow: 0 .5em 1em -.5em #000;
+  text-shadow: .1em .1em .5em #000;
+}
+app-root.xmas button:not(.text):hover {
+  animation: barberpole 5000ms linear infinite;
 }

@@ -4,12 +4,15 @@ import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  host: {'[class.xmas]':'xmas'}
 })
 
 export class AppComponent implements OnInit {
   title = 'Our Store'
+
   showCart: boolean = true
+  xmas:boolean
 
   constructor(private router: Router) {
 
@@ -25,8 +28,10 @@ export class AppComponent implements OnInit {
         if (event instanceof NavigationEnd) {
           if (event.url.includes('checkout')) {
             this.showCart = false;
+            this.xmas = true
           } else {
             this.showCart = true;
+            this.xmas = false
           }
         }
       });
