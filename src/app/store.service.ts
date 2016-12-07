@@ -1,5 +1,8 @@
 import {Injectable, Inject} from '@angular/core';
 import {CartService} from "./cart.service";
+import {Http} from "@angular/http";
+import 'rxjs/add/operator/toPromise';
+
 
 export class StoreItem {
   id:string
@@ -12,23 +15,37 @@ export class StoreItem {
 export class StoreService {
 
   cartService:CartService
+  allItems
   storeItems //:StoreItem[]
-  constructor(@Inject(CartService) cartService:CartService) {
+
+  constructor(@Inject(CartService) cartService:CartService, @Inject(Http) private http: Http ) {
     this.cartService = cartService
-    this.storeItems = [ //<StoreItem[]>
-      {id: '1', name:'Beers', desc: '', price: ''},
-      {id: '2', name:'Chips', desc: '', price: ''},
-      {id: '3', name:'Cake', desc: '', price: ''},
-      {id: '4', name:'Pie', desc: '', price: ''},
-      {id: '5', name:'Vodka', desc: '', price: ''},
-      {id: '6', name:'Bailey\'s', desc: '', price: ''},
-      {id: '7', name:'Corn Bread', desc: '', price: ''},
-      {id: '8', name:'Milk', desc: '', price: ''}
+    this.storeItems = this.allItems = [ //<StoreItem[]>
+      {id: '1', name:'Ten FIDY', category:'beer', desc: '', price: ''},
+      {id: '2', name:'Sawtooth', category:'beer', desc: '', price: ''},
+      {id: '3', name:'Barrel Aged Yeti', category:'beer', desc: '', price: ''},
+      {id: '4', name:'Legend Of The Liquid Brain', category:'beer', desc: '', price: ''},
+      {id: '5', name:'Glazed', category:'donuts', desc: '', price: ''},
+      {id: '6', name:'Chocolate Glazed', category:'donuts', desc: '', price: ''},
+      {id: '7', name:'Strawberry Cake', category:'donuts', desc: '', price: ''},
+      {id: '8', name:'Bear Claw', category:'donuts', desc: '', price: ''}
     ]
   }
 
   addToCart(thing) {
     this.cartService.addItem(thing);
+  }
+
+  filterByCategory(category:string) {
+    if (!category) {
+      this.storeItems = this.allItems
+    } else {
+      let things = this.allItems.filter((item) => {
+        return item.category === category
+      })
+      this.storeItems = things;
+    }
+
   }
 
 }

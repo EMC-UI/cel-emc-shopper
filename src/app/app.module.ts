@@ -14,11 +14,9 @@ import { StoreDonutsComponent } from './store-donuts/store-donuts.component';
 import { StoreBeerComponent } from './store-beer/store-beer.component';
 import { StoreGeneralComponent } from './store-general/store-general.component';
 
-
 const appRoutes: Routes = [
   { path: '', component: StoreGeneralComponent },
-  { path: 'donuts', component: StoreDonutsComponent },
-  { path: 'beer', component: StoreBeerComponent }
+  { path: ':category', component: StoreGeneralComponent }
 ];
 
 @NgModule({
