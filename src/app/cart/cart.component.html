@@ -1,4 +1,4 @@
-<h3>
+<h3 (click)="collapseCart()" [class.open]="cartCollapsed === true">
   <span>
     My Things
     <small>
@@ -10,7 +10,7 @@
 </h3>
 
 <div *ngIf="cartItems.length">
-  <ul>
+  <ul *ngIf="cartCollapsed">
     <li>
       <span></span>
       <button class="text" (click)="removeAllItem()">remove all</button>
@@ -20,7 +20,7 @@
       <button (click)="cartService.removeItem(item)" class="text">&times;</button>
     </li>
     <li>
-      <button routerLink="/checkout">Checkout</button>
+      <button routerLink="/checkout/start">Checkout</button>
     </li>
   </ul>
 </div>

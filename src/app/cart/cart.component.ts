@@ -1,6 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {CartService} from "../cart.service";
-import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'cart',
@@ -9,6 +8,7 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class CartComponent implements OnInit {
 
+  cartCollapsed
   cartItems:any[]
   cartService
   constructor(@Inject(CartService) cartService:CartService) {
@@ -18,9 +18,9 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems()
   }
-  removeFromCart (item){
-    this.cartService.removeItem(item)
-  }
 
+  collapseCart(): void {
+    this.cartCollapsed = !this.cartCollapsed;
+  }
 
 }

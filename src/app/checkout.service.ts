@@ -10,7 +10,7 @@ export class CheckoutService {
   }
 
   getCartItems() {
-    return this.localStorage.retrieve(this.key) || [];
+    return this.localStorage.retrieve('cart') || [];
   }
 
   getOrderItems() {

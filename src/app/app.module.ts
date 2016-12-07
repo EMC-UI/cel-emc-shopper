@@ -9,20 +9,17 @@ import { CartService } from './cart.service'
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
-import {StoreService} from "./store.service";
+import { StoreService } from "./store.service";
+import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import {CheckoutService} from "./checkout.service";
-import { StoreDonutsComponent } from './store-donuts/store-donuts.component';
-import { StoreBeerComponent } from './store-beer/store-beer.component';
-import { StoreGeneralComponent } from './store-general/store-general.component';
-
+import { DoneComponent } from './done/done.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StoreGeneralComponent },
-  { path: 'donuts', component: StoreDonutsComponent },
-  { path: 'beer', component: StoreBeerComponent },
-  { path: 'checkout', component: CheckoutComponent }
-
+  { path: '', component: StoreWrapperComponent },
+  { path: ':category', component: StoreWrapperComponent },
+  { path: 'checkout/start', component: CheckoutComponent },
+  { path: 'checkout/done', component: CheckoutComponent }
 ];
 
 @NgModule({
@@ -30,11 +27,9 @@ const appRoutes: Routes = [
     AppComponent,
     CartComponent,
     StoreComponent,
+    StoreWrapperComponent,
     CheckoutComponent,
-    StoreComponent,
-    StoreDonutsComponent,
-    StoreBeerComponent,
-    StoreGeneralComponent
+    DoneComponent
   ],
   imports: [
     BrowserModule,

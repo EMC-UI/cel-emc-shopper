@@ -1,8 +1,9 @@
-   <button (click)="order()">Orders</button>
-   <div *ngIf="orderItems && orderItems.length">
-     <ul>
-       <li *ngFor="let item of orderItems">
-         <span>{{item.name}}</span>
-       </li>
-     </ul>
-   </div>
+<h3> Review order </h3>
+<div *ngIf="orderItems && orderItems.length">
+  <ul>
+    <li *ngFor="let item of orderItems">
+      <span>{{item.name}}</span>
+    </li>
+  </ul>
+</div>
+<button (click)="order()">Place orders</button>
