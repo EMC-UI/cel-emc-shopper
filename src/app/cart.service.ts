@@ -52,6 +52,7 @@ export class CartService {
     }
   }
 
+
   getCartItems() {
     return this.localStorage.retrieve(this.key) || [];
   }

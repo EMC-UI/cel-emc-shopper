@@ -5,7 +5,10 @@
   </span>
   <span class="caret"></span>
 </h3>
-<div>remove all</div>
+<div>remove</div>
 <ul>
-  <li *ngFor="let item of cartItems">{{item.name}} {{item.quantity}} <button (click)="removeFromCart(item)">don't buy this</button></li>
+  <button (click)="removeAllItem()"> Remove all items </button>
+</ul>
+<ul>
+  <li *ngFor="let item of cartItems">{{item.name}} {{item.quantity}} <button (click)="removeFromCart(item)">do not buy this</button></li>
 </ul>

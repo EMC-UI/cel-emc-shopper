@@ -1,5 +1,6 @@
 import {Component, OnInit, Inject} from '@angular/core';
 import {CartService} from "../cart.service";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'cart',
@@ -17,5 +18,15 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems()
   }
+  removeFromCart (item){
+    this.cartService.removeItem(item)
+  }
 
+  removeAllItem(){
+    let cartItems = this.cartService.getCartItems()
+    while (cartItems.length >0) {
+      cartItems.pop()
+    }
+
+  }
 }

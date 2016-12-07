@@ -9,12 +9,15 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
 import {StoreService} from "./store.service";
+import { CheckoutComponent } from './checkout/checkout.component';
+import {CheckoutService} from "./checkout.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
-    StoreComponent
+    StoreComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import {StoreService} from "./store.service";
   providers: [
     CartService,
     LocalStorageService,
-    StoreService
+    StoreService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })
