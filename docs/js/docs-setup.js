@@ -10,7 +10,7 @@ NG_DOCS={
       "type": "directive",
       "moduleName": "Cart",
       "shortDescription": "The Cart component is a local storage driven &quot;bucket&quot; of things.  With it&#39;s api, you can add/remove items",
-      "keywords": "add allows api argument array basic browser bucket called cart checked checkout checkoutfunction component default details developer directive displayed driven element event example finished header html inputs item items itemtemplate local object persisted property provided quantity ready recieve session storage string summary summarytemplate supply template things total type user"
+      "keywords": "add allows api argument array basic browser bucket called cart checked checkout checkoutfunction component default details developer directive displayed driven element event example finished fires header html inputs item items itemtemplate javascript local object outputs persisted property provided quantity ready recieve session storage string summary summarytemplate supply template things total type user"
     }
   ],
   "apis": {

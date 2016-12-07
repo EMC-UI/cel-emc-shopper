@@ -34,6 +34,11 @@ import {CartService} from "../cart.service";
  * | summaryTemplate | {@type string}  | Default is no summary template.  items object provided for your template    |
  * | checkout        | {@type event}   | Called when user is ready to 'checkout'. first argument is array of items   |
  *
+ * # Outputs
+ *
+ * ```javascript
+ * event: checkout - fires with one argument that is an array of items in the cart
+ * ```
  *
  * @restrict Element
  *
