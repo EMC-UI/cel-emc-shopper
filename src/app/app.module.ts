@@ -11,11 +11,16 @@ import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
 import { StoreService } from "./store.service";
 import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import {CheckoutService} from "./checkout.service";
+import { DoneComponent } from './done/done.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: StoreWrapperComponent },
-  { path: 'category/:category', component: StoreWrapperComponent }
+  { path: 'category/:category', component: StoreWrapperComponent },
+  { path: 'checkout/start', component: CheckoutComponent },
+  { path: 'checkout/done', component: CheckoutComponent }
 ];
 
 @NgModule({
@@ -23,7 +28,9 @@ const appRoutes: Routes = [
     AppComponent,
     CartComponent,
     StoreComponent,
-    StoreWrapperComponent
+    StoreWrapperComponent,
+    CheckoutComponent,
+    DoneComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,8 @@ const appRoutes: Routes = [
   providers: [
     CartService,
     LocalStorageService,
-    StoreService
+    StoreService,
+    CheckoutService
   ],
   bootstrap: [AppComponent]
 })

@@ -23,4 +23,12 @@ export class CartComponent implements OnInit {
     this.cartCollapsed = !this.cartCollapsed;
   }
 
+  removeAllItem(){
+    let cartItems = this.cartService.getCartItems()
+    while (cartItems.length >0) {
+      cartItems.pop()
+    }
+
+  }
+
 }
