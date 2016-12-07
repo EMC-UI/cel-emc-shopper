@@ -1,31 +1,28 @@
-import {Component, OnInit, Inject} from '@angular/core';
-import {CartService} from "../cart.service";
+import {Component, OnInit, Inject, OnDestroy} from '@angular/core';
+import {Params, ActivatedRoute} from "@angular/router";
 import {StoreService} from "../store.service";
-import {ActivatedRoute, Params} from "@angular/router";
 import 'rxjs/add/operator/switchMap';
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'store',
   templateUrl: './store.component.html',
   styleUrls: ['./store.component.css']
 })
-export class StoreComponent implements OnInit {
+export class StoreComponent implements OnInit, OnDestroy {
 
-
-  constructor(@Inject(CartService) public cartService:CartService,
+  constructor(@Inject(ActivatedRoute) public route,
               @Inject(StoreService) public storeService:StoreService,
-              @Inject(ActivatedRoute) public route) {
-
-  }
+  @Inject(CartService) public cartService:CartService) { }
 
   ngOnInit() {
-
-    //this.router.params.switchMap((params: Params) => this.storeService.getByType(params['category']))
-    // this.route.params.switchMap((params: Params) => {
-    //   console.log(params['category'])
-    // })
-
+    this.route.params.subscribe((params: Params) => {
+      this.storeService.filterByCategory(params['category'])
+    })
   }
 
+  ngOnDestroy() {
+    this.route.params.unsubscribe()
+  }
 
 }
