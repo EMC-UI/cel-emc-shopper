@@ -177,9 +177,15 @@ cart li {
   display: flex;
   justify-content: space-between;
   padding: .5em 0;
+  font-size: .8em;
 }
+cart li > * + * {
+  margin-left: 1ch;
+}
+
 cart button:not(.text) {
   flex: 1;
+  margin-top: .5em;
 }
 
 .list li.selected {
