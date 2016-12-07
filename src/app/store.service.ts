@@ -23,7 +23,7 @@ export class StoreService {
     this.storeItems = this.allItems = [ //<StoreItem[]>
       {id: '1', name:'Bazillion Lego Pieces', category:'Toys', desc: '', price: ''},
       {id: '2', name:'Moon Sand', category:'Toys', desc: '', price: ''},
-      {id: '3', name:'VMAX All Flash', category:'Toys', desc: '', price: ''},
+      {id: '3', name:'VMAX Flash — The Amazing Technicolor Data Bucket', category:'Toys', desc: '', price: ''},
       {id: '4', name:'Web Component Playtime Blocks', category:'Toys', desc: '', price: ''},
       {id: '5', name:'Chess', category:'Games', desc: '', price: ''},
       {id: '6', name:'Silicon Valley Takeover', category:'Games', desc: '', price: ''},

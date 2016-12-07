@@ -19,6 +19,7 @@ export class StoreComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
+      console.log('hello there')
       this.storeService.filterByCategory(params['category'])
       this.category=params['category']
     })

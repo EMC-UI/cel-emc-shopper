@@ -16,8 +16,9 @@ import {CheckoutService} from "./checkout.service";
 import { DoneComponent } from './done/done.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StoreWrapperComponent },
-  { path: ':category', component: StoreWrapperComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: StoreWrapperComponent },
+  { path: 'category/:category', component: StoreWrapperComponent },
   { path: 'checkout/start', component: CheckoutComponent },
   { path: 'checkout/done', component: DoneComponent }
 ];
