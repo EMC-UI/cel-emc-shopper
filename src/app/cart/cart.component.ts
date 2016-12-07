@@ -8,6 +8,7 @@ import {CartService} from "../cart.service";
 })
 export class CartComponent implements OnInit {
 
+  cartCollapsed
   cartItems:any[]
   cartService
   constructor(@Inject(CartService) cartService:CartService) {
@@ -16,6 +17,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems()
+  }
+
+  collapseCart(): void {
+    this.cartCollapsed = !this.cartCollapsed;
   }
 
 }
