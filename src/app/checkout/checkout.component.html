@@ -1,4 +1,4 @@
-<h3> Review order </h3>
+<h3> Here's Your Order: </h3>
 <div *ngIf="orderItems && orderItems.length">
   <ul>
     <li *ngFor="let item of orderItems">
@@ -6,4 +6,4 @@
     </li>
   </ul>
 </div>
-<button (click)="order()">Place orders</button>
+<button (click)="order()">Place Order</button>
