@@ -17,7 +17,7 @@
     </li>
     <li *ngFor="let item of cartItems">
       <span>{{item.name}}</span>
-      <button (click)="removeItem(item)" class="text">&times;</button>
+      <button (click)="cartService.removeItem(item)" class="text">&times;</button>
     </li>
     <li>
       <button>Do The Thing</button>
