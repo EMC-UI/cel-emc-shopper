@@ -21,14 +21,14 @@ export class StoreService {
   constructor(@Inject(CartService) cartService:CartService, @Inject(Http) private http: Http ) {
     this.cartService = cartService
     this.storeItems = this.allItems = [ //<StoreItem[]>
-      {id: '1', name:'Ten FIDY', category:'beer', desc: '', price: ''},
-      {id: '2', name:'Sawtooth', category:'beer', desc: '', price: ''},
-      {id: '3', name:'Barrel Aged Yeti', category:'beer', desc: '', price: ''},
-      {id: '4', name:'Legend Of The Liquid Brain', category:'beer', desc: '', price: ''},
-      {id: '5', name:'Glazed', category:'donuts', desc: '', price: ''},
-      {id: '6', name:'Chocolate Glazed', category:'donuts', desc: '', price: ''},
-      {id: '7', name:'Strawberry Cake', category:'donuts', desc: '', price: ''},
-      {id: '8', name:'Bear Claw', category:'donuts', desc: '', price: ''}
+      {id: '1', name:'Ten FIDY', category:'Beer', desc: '', price: ''},
+      {id: '2', name:'Sawtooth', category:'Beer', desc: '', price: ''},
+      {id: '3', name:'Barrel Aged Yeti', category:'Beer', desc: '', price: ''},
+      {id: '4', name:'Legend Of The Liquid Brain', category:'Beer', desc: '', price: ''},
+      {id: '5', name:'Glazed', category:'Donuts', desc: '', price: ''},
+      {id: '6', name:'Chocolate Glazed', category:'Donuts', desc: '', price: ''},
+      {id: '7', name:'Strawberry Cake', category:'Donuts', desc: '', price: ''},
+      {id: '8', name:'Bear Claw', category:'Donuts', desc: '', price: ''}
     ]
   }
 

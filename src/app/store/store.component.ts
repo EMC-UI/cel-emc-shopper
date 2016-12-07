@@ -11,6 +11,8 @@ import {CartService} from "../cart.service";
 })
 export class StoreComponent implements OnInit, OnDestroy {
 
+  category:string
+
   constructor(@Inject(ActivatedRoute) public route,
               @Inject(StoreService) public storeService:StoreService,
   @Inject(CartService) public cartService:CartService) { }
@@ -18,6 +20,7 @@ export class StoreComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
       this.storeService.filterByCategory(params['category'])
+      this.category=params['category']
     })
   }
 

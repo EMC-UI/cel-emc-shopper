@@ -10,17 +10,19 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
 import { StoreService } from "./store.service";
+import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StoreComponent },
-  { path: ':category', component: StoreComponent }
+  { path: '', component: StoreWrapperComponent },
+  { path: ':category', component: StoreWrapperComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
-    StoreComponent
+    StoreComponent,
+    StoreWrapperComponent
   ],
   imports: [
     BrowserModule,
