@@ -10,7 +10,7 @@
 </h3>
 
 <div *ngIf="cartItems.length">
-  <ul>
+  <ul *ngIf="cartCollapsed">
     <li>
       <span></span>
       <button class="text">remove all</button>
