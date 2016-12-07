@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { StoreGeneralComponent } from './store-general.component';
+import { StoreWrapperComponent } from './store-wrapper.component';
 
-describe('StoreGeneralComponent', () => {
-  let component: StoreGeneralComponent;
-  let fixture: ComponentFixture<StoreGeneralComponent>;
+describe('StoreWrapperComponent', () => {
+  let component: StoreWrapperComponent;
+  let fixture: ComponentFixture<StoreWrapperComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StoreGeneralComponent ]
+      declarations: [ StoreWrapperComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StoreGeneralComponent);
+    fixture = TestBed.createComponent(StoreWrapperComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -9,16 +9,12 @@ import { CartService } from './cart.service'
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
-import {StoreService} from "./store.service";
-import { StoreDonutsComponent } from './store-donuts/store-donuts.component';
-import { StoreBeerComponent } from './store-beer/store-beer.component';
-import { StoreGeneralComponent } from './store-general/store-general.component';
-
+import { StoreService } from "./store.service";
+import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
 
 const appRoutes: Routes = [
-  { path: '', component: StoreGeneralComponent },
-  { path: 'donuts', component: StoreDonutsComponent },
-  { path: 'beer', component: StoreBeerComponent }
+  { path: '', component: StoreWrapperComponent },
+  { path: ':category', component: StoreWrapperComponent }
 ];
 
 @NgModule({
@@ -26,9 +22,7 @@ const appRoutes: Routes = [
     AppComponent,
     CartComponent,
     StoreComponent,
-    StoreDonutsComponent,
-    StoreBeerComponent,
-    StoreGeneralComponent
+    StoreWrapperComponent
   ],
   imports: [
     BrowserModule,
