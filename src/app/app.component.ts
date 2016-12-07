@@ -1,12 +1,37 @@
-import {Component, Inject} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router, NavigationStart, NavigationEnd} from "@angular/router";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Our Store'
+  showCart: boolean = true
 
-  constructor() {}
+  constructor(private router: Router) {
+
+  }
+
+  ngOnInit() {
+    this.router.events
+      .subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          if (event.url.includes('checkout')) {
+            this.showCart = false;
+          } else {
+            this.showCart = true;
+          }
+        }
+      });
+  }
+
+  // ngOnInit() {
+  //   this.route.params.subscribe((params:Params) => {
+  //     console.log(params);
+  //   })
+  // }
+
 }
