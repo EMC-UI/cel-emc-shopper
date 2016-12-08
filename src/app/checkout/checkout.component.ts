@@ -2,6 +2,14 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {CheckoutService} from "../checkout.service";
 import {Router} from "@angular/router";
 
+export class Recipient {
+  constructor(
+    public id: number,
+    public name: string,
+    public good: boolean
+  ) {  }
+}
+
 @Component({
   selector: 'checkout',
   templateUrl: './checkout.component.html',
@@ -10,6 +18,8 @@ import {Router} from "@angular/router";
 export class CheckoutComponent implements OnInit {
   checkoutService
   orderItems:any[]
+
+  model = new Recipient(1, '' , false);
 
   constructor(@Inject(CheckoutService)  checkoutService:CheckoutService,
               private router: Router) {

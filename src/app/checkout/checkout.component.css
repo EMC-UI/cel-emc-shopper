@@ -19,3 +19,6 @@ button:hover {
   background: var(--button-bg);
   transition: background 1s ease-in-out;
 }
+button[disabled], button:hover[disabled] {
+  background-color: grey;
+}
