@@ -25,7 +25,6 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Viewing Documentation
 `cd docs/`, `python -m SimpleHTTPServer`, then navigate to http://localhost:8000/ and click on CEL/EMC-UI Reference > Cart.
 
-
 ## Deploying to Github Pages
 
 Run `ng github-pages:deploy` to deploy to Github Pages.

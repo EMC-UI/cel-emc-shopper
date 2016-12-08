@@ -80,5 +80,9 @@ export class CartComponent implements OnInit {
     }
 
   }
+  
+  playXmasMusic() {
+    new Audio("assets/jingle-bells.mp3").play();
+  }
 
 }
