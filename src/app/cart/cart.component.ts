@@ -50,10 +50,9 @@ import {CartService} from "../cart.service";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
 
   cartCollapsed
-  cartItems:any[]
   cartService
   @Output() checkout = new EventEmitter<Object[]>()
 
@@ -61,24 +60,12 @@ export class CartComponent implements OnInit {
     this.cartService = cartService
   }
 
-  ngOnInit() {
-    this.cartItems = this.cartService.getCartItems()
-  }
-
   doCheckout() {
-    this.checkout.emit(this.cartItems)
+    this.checkout.emit(this.cartService.getCartItems())
   }
 
   collapseCart(): void {
     this.cartCollapsed = !this.cartCollapsed;
-  }
-
-  removeAllItem(){
-    let cartItems = this.cartService.getCartItems()
-    while (cartItems.length >0) {
-      cartItems.pop()
-    }
-
   }
 
 }

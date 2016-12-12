@@ -1,6 +1,7 @@
 import {Injectable, Inject} from '@angular/core';
 import {LocalStorageService} from 'ng2-webstorage';
 import {StoreItem} from "./store.service";
+import * as _ from 'lodash'
 
 @Injectable()
 export class CartService {
@@ -10,6 +11,7 @@ export class CartService {
 
   constructor(@Inject(LocalStorageService) localStorage) {
     this.localStorage = localStorage
+    this.getCartItems = _.debounce(this._getCartItems, 100, { leading: true })
   }
 
   addItem(item) {
@@ -52,9 +54,15 @@ export class CartService {
     }
   }
 
+  _getCartItems() {
+    let items = this.localStorage.retrieve(this.key);
+    console.log('hello getCartItems()', items);
+    return items? items : [];
+  }
+
 
   getCartItems() {
-    return this.localStorage.retrieve(this.key) || [];
+
   }
 
 }

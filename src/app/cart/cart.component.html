@@ -2,14 +2,14 @@
   <span>
     Wish List
     <small>
-      {{cartItems.length}}
-      {{(cartItems.length == 1 ? 'item' : 'items')}}
+      {{cartService.getCartItems().length}}
+      {{(cartService.getCartItems().length == 1 ? 'item' : 'items')}}
     </small>
   </span>
   <span class="caret"></span>
 </h3>
 
-<div *ngIf="cartItems.length && !cartCollapsed" class="list-wrapper">
+<div *ngIf="cartService.getCartItems().length && !cartCollapsed" class="list-wrapper">
   <ul>
     <li class="ghost">
       <span></span>
@@ -19,7 +19,7 @@
     </li>
   </ul>
   <ul class="items">
-    <li *ngFor="let item of cartItems">
+    <li *ngFor="let item of cartService.getCartItems()">
       <span>
         {{item.name}}<br />
         <small class="ghost">in <a routerLink="category/{{item.category}}">{{item.category}}</a></small>
