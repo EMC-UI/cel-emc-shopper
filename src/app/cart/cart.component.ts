@@ -53,15 +53,19 @@ import {CartService} from "../cart.service";
 export class CartComponent {
 
   cartCollapsed
+  cartItems
   cartService
   @Output() checkout = new EventEmitter<Object[]>()
 
   constructor(@Inject(CartService) cartService:CartService) {
     this.cartService = cartService
+    this.cartService.cartItems.subscribe((cartItems) => {
+      this.cartItems = cartItems
+    })
   }
 
   doCheckout() {
-    this.checkout.emit(this.cartService.getCartItems())
+    this.checkout.emit(this.cartItems)
   }
 
   collapseCart(): void {

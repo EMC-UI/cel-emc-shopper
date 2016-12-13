@@ -9,12 +9,12 @@
   <span class="caret"></span>
 </h3>
 
-<div *ngIf="cartService.getCartItems().length && !cartCollapsed" class="list-wrapper">
+<div *ngIf="cartItems.length && !cartCollapsed" class="list-wrapper">
   <ul>
     <li class="ghost">
       <span></span>
       <small>
-        <button class="text" (click)="removeAllItem()">remove all</button>
+        <button class="text" (click)="cartService.removeAll()">remove all</button>
       </small>
     </li>
   </ul>
