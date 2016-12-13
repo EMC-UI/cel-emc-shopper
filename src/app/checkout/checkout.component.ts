@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {CheckoutService} from "../checkout.service";
+import {CheckoutService} from "./checkout.service";
 import {Router} from "@angular/router";
 
 export class Recipient {

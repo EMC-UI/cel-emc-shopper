@@ -1,5 +1,5 @@
-import {Component, OnInit, Inject, EventEmitter, Output} from '@angular/core';
-import {CartService} from "../cart.service";
+import {Component, OnInit, Inject, EventEmitter, Output, Input} from '@angular/core';
+import {CartService} from "./cart.service";
 
 /**
  * @ngdoc directive
@@ -52,15 +52,20 @@ import {CartService} from "../cart.service";
 })
 export class CartComponent {
 
+  @Input() cartTitle:string = 'Wish List'
+  @Input() itemTemplate:string = '{{item.name}}'
+  @Input() summaryTemplate:string
+  @Input() actionButtonLabel:string = 'Checkout'
+  @Output() checkout = new EventEmitter<Object[]>()
+
   cartCollapsed
   cartItems
   cartService
-  @Output() checkout = new EventEmitter<Object[]>()
 
   constructor(@Inject(CartService) cartService:CartService) {
     this.cartService = cartService
     this.cartService.cartItems.subscribe((cartItems) => {
-      this.cartItems = cartItems
+      this.cartItems = cartItems.toJS()
     })
   }
 

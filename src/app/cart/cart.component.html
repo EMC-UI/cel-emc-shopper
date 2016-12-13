@@ -1,9 +1,9 @@
 <h3 (click)="collapseCart()" [class.open]="cartCollapsed === true">
   <span>
-    Wish List
+    {{cartTitle}}
     <small>
-      {{cartService.getCartItems().length}}
-      {{(cartService.getCartItems().length == 1 ? 'item' : 'items')}}
+      {{cartItems.length}}
+      {{(cartItems.length == 1 ? 'item' : 'items')}}
     </small>
   </span>
   <span class="caret"></span>
@@ -19,17 +19,17 @@
     </li>
   </ul>
   <ul class="items">
-    <li *ngFor="let item of cartService.getCartItems()">
+    <li *ngFor="let item of cartItems">
       <span>
         {{item.name}}<br />
-        <small class="ghost">in <a routerLink="category/{{item.category}}">{{item.category}}</a></small>
+        <small class="ghost" *ngIf="item.category">in {{item.category}}</small>
       </span>
       <button (click)="cartService.removeItem(item)" class="text">&times;</button>
     </li>
   </ul>
   <ul>
     <li>
-      <button (click)="doCheckout()">Checkout</button>
+      <button (click)="doCheckout()">{{actionButtonLabel}}</button>
     </li>
   </ul>
 </div>

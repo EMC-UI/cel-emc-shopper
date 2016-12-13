@@ -1,10 +1,10 @@
 import {Injectable, Inject} from '@angular/core';
-import {CartService} from "./cart.service";
+import {CartService, iCartItem} from "../cart/cart.service";
 import {Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
 
-export class StoreItem {
+export class StoreItem implements iCartItem {
   id:string
   name:string
   desc:string

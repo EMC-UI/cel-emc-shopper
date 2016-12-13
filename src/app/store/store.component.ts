@@ -1,8 +1,8 @@
 import {Component, OnInit, Inject, OnDestroy} from '@angular/core';
 import {Params, ActivatedRoute} from "@angular/router";
-import {StoreService} from "../store.service";
+import {StoreService} from "./store.service";
 import 'rxjs/add/operator/switchMap';
-import {CartService} from "../cart.service";
+import {CartService} from "../cart/cart.service";
 
 @Component({
   selector: 'store',
