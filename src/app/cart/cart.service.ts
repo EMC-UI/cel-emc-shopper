@@ -11,7 +11,7 @@ export class CartService {
   localStorage
   key = 'cart'
 
-  private cartItems: BehaviorSubject<List<iCartItem>> = new BehaviorSubject(List([]))
+  cartItems: BehaviorSubject<List<iCartItem>> = new BehaviorSubject(List([]))
 
   constructor(@Inject(LocalStorageService) localStorage) {
     this.localStorage = localStorage
