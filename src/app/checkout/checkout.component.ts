@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
      this.orderItems = this.checkoutService.getCartItems()
+    console.log('what items: ', this.orderItems);
   }
 
   order(){

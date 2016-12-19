@@ -1,50 +1,53 @@
-import {Injectable, Inject} from '@angular/core';
-import {LocalStorageService} from 'ng2-webstorage';
-import {BehaviorSubject} from "rxjs";
+import {Injectable, Inject} from '@angular/core'
+import {LocalStorageService} from 'ng2-webstorage'
+import {BehaviorSubject} from 'rxjs'
 import {List} from 'immutable'
-import {iCartItem} from './cart.model'
+import {ICartItem} from './cart.model'
 
 
 @Injectable()
-export class CartService {
+export class CartService<T extends ICartItem<T>> {
 
   localStorage
   key = 'cart'
 
-  cartItems: BehaviorSubject<List<iCartItem>> = new BehaviorSubject(List([]))
+  cartItems: BehaviorSubject<List<T>> = new BehaviorSubject(List([]))
 
   constructor(@Inject(LocalStorageService) localStorage) {
     this.localStorage = localStorage
-    let storedItems = <iCartItem[]>localStorage.retrieve(this.key) || []
+    let storedItems:List<T> = localStorage.retrieve(this.key) || []
     this.cartItems.next(List(storedItems))
     this.cartItems.subscribe((items) => {
-      this.localStorage.store(this.key, items);
+      this.localStorage.store(this.key, items)
     })
   }
 
-  addItem(cartItem:iCartItem) {
-    let items = this.cartItems.getValue();
-    let index = items.findIndex(item => item.id === cartItem.id)
+  addItem(cartItem: T) {
+    let items:List<T> = this.cartItems.getValue()
+    let index:number  = items.findIndex(item => item.id === cartItem.id)
     if (index > -1) {
-      items = items.updateIn([index, "quantity"], value => value + 1)
+      debugger;
+      items = items.update(index, (item: T) => {
+        let x:T = item.setQuantity(item.quantity + 1)
+        return x
+      })
     } else {
-      cartItem.quantity = 1
       items = items.push(cartItem)
     }
     this.cartItems.next(items)
   }
 
-  hasItem(cartItem:iCartItem) {
-    let items = this.cartItems.getValue();
+  hasItem(cartItem: T) {
+    let items:List<T> = this.cartItems.getValue()
     let found = items.find((item) => {
       return item.id === cartItem.id
     })
-    return found ? true : false;
+    return found ? true : false
   }
 
-  removeItem(item) {
-    let items = this.cartItems.getValue();
-    let index = items.findIndex((_item) => {
+  removeItem(item:T) {
+    let items:List<T> = this.cartItems.getValue()
+    let index:number = items.findIndex((_item) => {
       return item.id === _item.id
     })
     if (index > -1) {
@@ -54,11 +57,11 @@ export class CartService {
   }
 
   removeAll() {
-    this.cartItems.next(List(<iCartItem>[]))
+    this.cartItems.next(List(<T[]>[]))
   }
 
-  toggleAddItem(cartItem:iCartItem) {
-    if(this.hasItem(cartItem)) {
+  toggleItem(cartItem: T) {
+    if (this.hasItem(cartItem)) {
       this.removeItem(cartItem)
     } else {
       this.addItem(cartItem)

@@ -1,5 +1,6 @@
-import {Component, OnInit, Inject, EventEmitter, Output, Input} from '@angular/core';
-import {CartService} from "./cart.service";
+import {Component, Inject, EventEmitter, Output, Input} from '@angular/core'
+import {CartService} from './cart.service'
+import {ICartItem} from './cart.model'
 
 /**
  * @ngdoc directive
@@ -42,27 +43,24 @@ import {CartService} from "./cart.service";
  *
  * @restrict Element
  *
- *
- *
  */
 @Component({
   selector: 'cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  templateUrl: './cart.component.html'
 })
-export class CartComponent {
+export class CartComponent<T extends ICartItem<T>> {
 
-  @Input() cartTitle:string = 'Wish List'
-  @Input() itemTemplate:string = '{{item.name}}'
-  @Input() summaryTemplate:string
-  @Input() actionButtonLabel:string = 'Checkout'
-  @Output() checkout = new EventEmitter<Object[]>()
+  @Input() cartTitle: string = 'Wish List'
+  @Input() itemTemplate: string = '{{item.name}}'
+  @Input() summaryTemplate: string
+  @Input() actionButtonLabel: string = 'Checkout'
+  @Output() checkout = new EventEmitter<T[]>()
 
-  cartCollapsed
+  cartCollapsed = false
   cartItems
   cartService
 
-  constructor(@Inject(CartService) cartService:CartService) {
+  constructor(@Inject(CartService) cartService: CartService<T>) {
     this.cartService = cartService
     this.cartService.cartItems.subscribe((cartItems) => {
       this.cartItems = cartItems.toJS()
@@ -74,7 +72,7 @@ export class CartComponent {
   }
 
   collapseCart(): void {
-    this.cartCollapsed = !this.cartCollapsed;
+    this.cartCollapsed = !this.cartCollapsed
   }
 
 }

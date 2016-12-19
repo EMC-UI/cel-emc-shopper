@@ -1,6 +1,6 @@
 import {Component, OnInit, Inject, OnDestroy} from '@angular/core';
 import {Params, ActivatedRoute} from "@angular/router";
-import {StoreService} from "./store.service";
+import {StoreService, StoreItem} from "./store.service";
 import 'rxjs/add/operator/switchMap';
 import {CartService} from "../cart/cart.service";
 
@@ -15,7 +15,7 @@ export class StoreComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(ActivatedRoute) public route,
               @Inject(StoreService) public storeService:StoreService,
-  @Inject(CartService) public cartService:CartService) { }
+  @Inject(CartService) public cartService:CartService<StoreItem>) { }
 
   ngOnInit() {
     this.route.params.subscribe((params: Params) => {
