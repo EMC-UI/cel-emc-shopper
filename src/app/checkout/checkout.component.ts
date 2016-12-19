@@ -38,10 +38,6 @@ export class CheckoutComponent implements OnInit {
     this.router.navigate(['/checkout/done'])
   }
 
-  playXmasMusic() {
-    new Audio("assets/jingle-bells.mp3").play();
-  }
-
 }
 
 

@@ -74,5 +74,9 @@ export class CartComponent<T extends ICartItem<T>> {
   collapseCart(): void {
     this.cartCollapsed = !this.cartCollapsed
   }
+  
+  playXmasMusic() {
+    new Audio("assets/jingle-bells.mp3").play();
+  }
 
 }

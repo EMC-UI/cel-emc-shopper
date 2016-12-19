@@ -26,7 +26,6 @@ export class CartService<T extends ICartItem<T>> {
     let items:List<T> = this.cartItems.getValue()
     let index:number  = items.findIndex(item => item.id === cartItem.id)
     if (index > -1) {
-      debugger;
       items = items.update(index, (item: T) => {
         let x:T = item.setQuantity(item.quantity + 1)
         return x
