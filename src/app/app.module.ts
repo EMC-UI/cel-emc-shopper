@@ -4,15 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from "@angular/router";
 import { Ng2Webstorage as StorageModule, LocalStorageService } from 'ng2-webstorage';
-import { CartService } from './cart.service'
+import { CartService } from './cart/cart.service'
 
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { StoreComponent } from './store/store.component';
-import { StoreService } from "./store.service";
+import { StoreService } from "./store/store.service";
 import { StoreWrapperComponent } from './store-wrapper/store-wrapper.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import {CheckoutService} from "./checkout.service";
+import {CheckoutService} from "./checkout/checkout.service";
 import { DoneComponent } from './done/done.component';
 
 const appRoutes: Routes = [

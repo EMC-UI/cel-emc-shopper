@@ -1,5 +1,5 @@
 import {Component, OnInit, Inject} from '@angular/core';
-import {CheckoutService} from "../checkout.service";
+import {CheckoutService} from "./checkout.service";
 import {Router} from "@angular/router";
 
 export class Recipient {
@@ -29,6 +29,7 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit() {
      this.orderItems = this.checkoutService.getCartItems()
+    console.log('what items: ', this.orderItems);
   }
 
   order(){

@@ -1,5 +1,6 @@
-import {Component, OnInit, Inject, EventEmitter, Output} from '@angular/core';
-import {CartService} from "../cart.service";
+import {Component, Inject, EventEmitter, Output, Input} from '@angular/core'
+import {CartService} from './cart.service'
+import {ICartItem} from './cart.model'
 
 /**
  * @ngdoc directive
@@ -42,27 +43,28 @@ import {CartService} from "../cart.service";
  *
  * @restrict Element
  *
- *
- *
  */
 @Component({
   selector: 'cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  templateUrl: './cart.component.html'
 })
-export class CartComponent implements OnInit {
+export class CartComponent<T extends ICartItem<T>> {
 
-  cartCollapsed
-  cartItems:any[]
+  @Input() cartTitle: string = 'Wish List'
+  @Input() itemTemplate: string = '{{item.name}}'
+  @Input() summaryTemplate: string
+  @Input() actionButtonLabel: string = 'Checkout'
+  @Output() checkout = new EventEmitter<T[]>()
+
+  cartCollapsed = false
+  cartItems
   cartService
-  @Output() checkout = new EventEmitter<Object[]>()
 
-  constructor(@Inject(CartService) cartService:CartService) {
+  constructor(@Inject(CartService) cartService: CartService<T>) {
     this.cartService = cartService
-  }
-
-  ngOnInit() {
-    this.cartItems = this.cartService.getCartItems()
+    this.cartService.cartItems.subscribe((cartItems) => {
+      this.cartItems = cartItems.toJS()
+    })
   }
 
   doCheckout() {
@@ -70,15 +72,7 @@ export class CartComponent implements OnInit {
   }
 
   collapseCart(): void {
-    this.cartCollapsed = !this.cartCollapsed;
-  }
-
-  removeAllItem(){
-    let cartItems = this.cartService.getCartItems()
-    while (cartItems.length >0) {
-      cartItems.pop()
-    }
-
+    this.cartCollapsed = !this.cartCollapsed
   }
   
   playXmasMusic() {

@@ -2,7 +2,7 @@
 <ul>
   <li [class.selected]="cartService.hasItem(item)" *ngFor="let item of storeService.storeItems">
     <label>
-      <input type="checkbox" (click)="cartService.toggleAddItem(item)" [checked]="cartService.hasItem(item)" />
+      <input type="checkbox" (click)="cartService.toggleItem(item)" [checked]="cartService.hasItem(item)" />
       <span>
         {{item.name}}
         <em *ngIf="!category" class="ghost">({{item.category}})</em>
